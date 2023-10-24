@@ -2,32 +2,28 @@ package hito;
 import java.io.Serializable;
 
 public class Movimiento implements Serializable {
-    private String titulo;
-    private String director;
+    private String tipo;
+    private double cantidad;
 
-    public Movimiento(String titulo, String director) {
-        this.titulo = titulo;
-        this.director = director;
+    public Movimiento(String tipo, double cantidad) {
+        this.tipo = tipo;
+        this.cantidad = cantidad;
     }
 
-    // Getter para el título
-    public String getTitulo() {
-        return titulo;
+    public String getTipo() {
+        return tipo;
     }
 
-    // Setter para el título
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    // Getter para el director
-    public String getDirector() {
-        return director;
+    public double getCantidad() {
+        return cantidad;
     }
 
-    // Setter para el director
-    public void setDirector(String director) {
-        this.director = director;
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
     }
 }
 

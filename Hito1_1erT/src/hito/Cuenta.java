@@ -1,45 +1,44 @@
 package hito;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cuenta implements Serializable {
     private Cliente cliente;
-    private float movimientos;
+    private double saldo;
+    private List<Movimiento> movimientos;
 
     public Cuenta(Cliente cliente) {
         this.cliente = cliente;
-        this.movimientos;
+        this.saldo = 0.0;
+        this.movimientos = new ArrayList<>();
     }
 
-    public void añadirPelicula(Movimiento movimiento) {
-    	
-        movimientos.add(movimiento);
-        
+    public void ingresarFondos(double cantidad) {
+        if (cantidad > 0) {
+            saldo += cantidad;
+            Movimiento movimiento = new Movimiento("Ingreso", cantidad);
+            movimientos.add(movimiento);
+        }
     }
 
-    public void eliminarPelicula(Pelicula pelicula) {
-        peliculas.remove(pelicula);
+    public void retirarFondos(double cantidad) {
+        if (cantidad > 0 && saldo >= cantidad) {
+            saldo -= cantidad;
+            Movimiento movimiento = new Movimiento("Retiro", cantidad);
+            movimientos.add(movimiento);
+        }
     }
 
-    // Getter para el operador
-    public Operador getOperador() {
-        return operador;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    // Setter para el operador
-    public void setOperador(Operador operador) {
-        this.operador = operador;
+    public double getSaldo() {
+        return saldo;
     }
 
-    // Getter para la lista de películas
-    public ArrayList<Pelicula> getPeliculas() {
-        return peliculas;
-    }
-
-    // Setter para la lista de películas
-    public void setPeliculas(ArrayList<Pelicula> peliculas) {
-        this.peliculas = peliculas;
+    public List<Movimiento> getMovimientos() {
+        return movimientos;
     }
 }
-

@@ -9,12 +9,10 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
     }
 
-    // Getter para el nombre
     public String getNombre() {
         return nombre;
     }
 
-    // Setter para el nombre
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
