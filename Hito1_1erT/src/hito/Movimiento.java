@@ -25,5 +25,10 @@ public class Movimiento implements Serializable {
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
+    
+    @Override
+    public String toString() {
+        return "Tipo: " + tipo + ", Cantidad: " + cantidad;
+    }
 }
 
