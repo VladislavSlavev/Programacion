@@ -2,6 +2,7 @@ package hito;
 
 import java.io.Serializable;
 
+//clase cliente con su atributo, constructor, setter y getter
 public class Cliente implements Serializable {
     private String nombre;
 
