@@ -1,4 +1,4 @@
-spackage actividad1;
+package actividad1;
 
 import java.util.*;
 import java.util.Queue;
