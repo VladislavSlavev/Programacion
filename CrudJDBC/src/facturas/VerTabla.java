@@ -41,7 +41,7 @@ public class VerTabla extends JFrame {
         buttonPanel.setLayout(new BorderLayout());
 
         // Creacion del boton para agregar un usuario
-        botonCargarDatos = new JButton("Añadir Articulo");
+        botonCargarDatos = new JButton("Añadir Factura");
         botonCargarDatos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,28 +52,28 @@ public class VerTabla extends JFrame {
         });
         buttonPanel.add(botonCargarDatos, BorderLayout.CENTER);
         
-        JButton botonEditarArticulo = new JButton("Editar Articulo");
-        botonEditarArticulo.addActionListener(new ActionListener() {
+        JButton botonEditarFactura = new JButton("Editar Factura");
+        botonEditarFactura.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Muestra un cuadro de diálogo para ingresar el número de usuario a eliminar
-               String articuloAEditar = JOptionPane.showInputDialog("Ingrese el número de usuario a editar:");
-                if (articuloAEditar != null && !articuloAEditar.isEmpty()) {
+               String facturaAEditar = JOptionPane.showInputDialog("Ingrese el número de factura a editar:");
+                if (facturaAEditar != null && !facturaAEditar.isEmpty()) {
                     try {
-                        int numeroArticulo = Integer.parseInt(articuloAEditar);
+                        int idFactura = Integer.parseInt(facturaAEditar);
                         
                         // Mostrar un segundo cuadro de diálogo para ingresar los nuevos datos
-                        String nuevoNombre = JOptionPane.showInputDialog("Nuevo nombre:");
-                        String IdCat = JOptionPane.showInputDialog("Nuevo ID de Categoria:");
-                        int nuevoIdCat = Integer.parseInt(IdCat);
+                        String cliente = JOptionPane.showInputDialog("Nuevo ID del cliente");
+                        int nuevoCliente = Integer.parseInt(cliente);
+                        String nuevaFecha = JOptionPane.showInputDialog("Nueva fecha:");
                         String Precio = JOptionPane.showInputDialog("Nuevo precio:");
                         float nuevoPrecio = Float.parseFloat(Precio);
                         String Stock = JOptionPane.showInputDialog("Nueva cantidad de stock:");
                         int nuevoStock = Integer.parseInt(Stock);
-                        String nuevaFechaIngreso = JOptionPane.showInputDialog("Nueva fecha de ingreso:");
+
                         
                         // Llama al método de Usuario para actualizar el usuario
-                        articulo.actualizarArticulo(numeroArticulo, nuevoNombre, nuevoIdCat, nuevoPrecio, nuevoStock, nuevaFechaIngreso);
+                        articulo.actualizarFactura(idFactura, nuevoNombre, nuevoIdCat, nuevoPrecio, nuevoStock, nuevaFechaIngreso);
                         
                         // Actualiza la tabla después de editar
                         obtenerDatos();
@@ -85,7 +85,7 @@ public class VerTabla extends JFrame {
             }
         });
         
-        buttonPanel.add(botonEditarArticulo, BorderLayout.WEST);
+        buttonPanel.add(botonEditarFactura, BorderLayout.WEST);
         add(buttonPanel, BorderLayout.SOUTH);
         
         //---------------------------------------------------------
